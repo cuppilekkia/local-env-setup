@@ -1,0 +1,22 @@
+---
+- name: Check if main repository is already installed.
+  stat: 
+    path: ~/code/leadspark-tulu/.env
+  register: tulu_repo
+
+- name: Checkout main repo
+  git:
+    dest: ~/code/leadspark-tulu
+    repo: git@bitbucket.org:drivek/leadspark-tulu.git
+  when: not tulu_repo.stat.exists
+
+- name: Check if main repository is already installed.
+  stat: 
+    path: ~/code/keycloak-themes/README.md
+  register: keycloak_repo
+
+- name: Checkout keycloak theme repo
+  git:
+    dest: ~/code/keycloak-themes
+    repo: git@bitbucket.org:drivek/keycloak-themes.git
+  when: not keycloak_repo.stat.exists

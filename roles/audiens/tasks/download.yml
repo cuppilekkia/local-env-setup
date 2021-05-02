@@ -1,0 +1,13 @@
+---
+- name: Check if the repositories are already installed.
+  stat: 
+    path: "~/code/{{ item }}/README.md"
+  register: repo_stats
+  loop: "{{ repos }}"
+
+- name: Checkout the reposistories
+  git:
+    dest: "~/code/{{ item.item }}"
+    repo: "git@github.com:Audiens/{{ item.item }}.git"
+  when: not item.stat.exists
+  loop: "{{ repo_stats }}"

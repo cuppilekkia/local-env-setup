@@ -1,0 +1,51 @@
+---
+- name: Export npm token variable in user profile
+  lineinfile:
+      path: /home/{{ my_user }}/.profile
+      state: present
+      insertafter: EOF
+      regexp: export NPM_TOKEN={{ npm_token }}
+      line: export NPM_TOKEN={{ npm_token }}
+
+- name: Add mkvpn alias in user bashrc file
+  lineinfile:
+      path: /home/{{ my_user }}/.zshrc
+      state: present
+      insertafter: EOF
+      regexp: alias mkvpn='service openvpn@{{ motork_openvpn_filename }}'
+      line: alias mkvpn='service openvpn@{{ motork_openvpn_filename }}'
+
+- name: Source the bash_profile file
+  shell: . /home/{{ my_user }}/.profile
+
+- name: Create composer directory
+  file:
+      path: /home/{{ my_user }}/.composer # required. Path to the file being managed.
+      state: directory
+      owner: "{{ my_user }}"
+
+- name: Create .npmrc file
+  copy:
+    dest: "/home/{{ my_user }}/.npmrc"
+    owner: "{{ my_user }}"
+    content: |
+      //nexus.ik.motork.io/repository/motork-npm/:_auth={{ npm_token }}
+      //nexus.ik.motork.io/repository/motork-npm/:email=vitantonio.coppola@drivek.com
+      //nexus.ik.motork.io/repository/motork-npm/:always-auth=true
+      //nexus.ik.motork.io/repository/motork-npm-hosted/:_auth={{ npm_token }}
+      //nexus.ik.motork.io/repository/motork-npm-hosted/:email=vitantonio.coppola@drivek.com
+      //nexus.ik.motork.io/repository/motork-npm-hosted/:always-auth=true
+
+- name: Create composer auth file
+  copy:
+    dest: "/home/{{ my_user }}/.composer/auth.json"
+    owner: "{{ my_user }}"
+    content: |
+      {
+        "http-basic": {
+          "nexus.ik.motork.io": {
+            "username": "{{ nexus_user }}",
+            "password": "{{ nexus_password }}"
+          }
+        }
+      }

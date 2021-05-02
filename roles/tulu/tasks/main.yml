@@ -1,0 +1,19 @@
+---
+- name: Create main code TULU directory
+  file:
+      path: /home/{{ my_user }}/code # required. Path to the file being managed.
+      state: directory
+      owner: "{{ my_user }}"
+
+- name: Nexus
+  include: nexus.yml
+
+- name: Hosts
+  include: hosts.yml
+
+- name: Crowdin CLI
+  include: crowdin.yml
+
+- name: Tulu download
+  become_user: "{{ my_user }}"
+  include: download.yml

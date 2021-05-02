@@ -1,0 +1,7 @@
+---
+- name: geerlingguy.git
+- name: geerlingguy.java
+- name: geerlingguy.nodejs
+- name: gantsign.oh-my-zsh
+- name: gantsign.postman
+- name: viasite-ansible.zsh

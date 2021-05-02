@@ -1,0 +1,6 @@
+---
+repos:
+  - core
+  - dashboard
+  - dashboard-fe
+  - dashboard-api

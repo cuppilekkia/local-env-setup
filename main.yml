@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: true
+  connection: local
+  
+  vars_files:
+    - default.config.yml
+
+  tasks:
+    - include_tasks: tasks/main.yml
+
+  roles:
+    - role: docker
+    - role: geerlingguy.git
+    - role: geerlingguy.java
+    - role: geerlingguy.nodejs
+    - role: gantsign.postman
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: "{{ my_user }}"
+    #- role: tulu
+    - role: audiens
+    - role: yarn
+    - role: gantsign.postman

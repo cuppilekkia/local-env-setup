@@ -1,0 +1,23 @@
+---
+- name: Install common packages
+  apt:
+    name: 
+      - curl
+      - make
+      - terminator
+      - openvpn
+      - ctop
+    state: present
+
+- name: Install common packages
+  snap:
+    name: 
+      - slack
+      - code
+      - zoom-client
+      - teams
+      - spotify
+      - datagrip
+      - phpstorm
+      - goland
+    state: present

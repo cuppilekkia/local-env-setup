@@ -1,0 +1,10 @@
+---
+my_user: ubuntu # put here your machine local user name
+npm_token: XX # put here your token provided by nexus config
+nexus_user: XX # put here your nexus username
+nexus_password: XX # and your password
+bitbucket_username: XX # put here your bitbucket nickname, it's used to checkout the repos
+motork_openvpn_filename: XX # put here the OVPN filename without the extension 
+
+nodejs_version: "12.x"
+nodejs_install_npm_user: "root"

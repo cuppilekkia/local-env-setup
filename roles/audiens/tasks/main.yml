@@ -1,0 +1,13 @@
+---
+- name: Create main code Audiens directory
+  file:
+      path: /home/{{ my_user }}/code # required. Path to the file being managed.
+      state: directory
+      owner: "{{ my_user }}"
+
+- name: Hosts
+  include: hosts.yml
+
+- name: Audiens download
+  become_user: "{{ my_user }}"
+  include: download.yml
