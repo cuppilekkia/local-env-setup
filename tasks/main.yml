@@ -9,15 +9,35 @@
       - ctop
     state: present
 
-- name: Install common packages
+- name: Install slack
+  snap:
+    name: slack
+    classic: yes
+
+- name: Install VSCode
+  snap:
+    name: code
+    classic: yes
+
+- name: Install datagrip
+  snap:
+    name: datagrip
+    classic: yes
+    
+- name: Install phpstorm
+  snap:
+    name: phpstorm
+    classic: yes
+    
+- name: Install goland
+  snap:
+    name: goland
+    classic: yes
+    
+- name: Install snap packages
   snap:
     name: 
-      - slack
-      - code
       - zoom-client
       - teams
       - spotify
-      - datagrip
-      - phpstorm
-      - goland
     state: present

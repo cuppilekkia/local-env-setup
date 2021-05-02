@@ -5,6 +5,7 @@ nexus_user: XX # put here your nexus username
 nexus_password: XX # and your password
 bitbucket_username: XX # put here your bitbucket nickname, it's used to checkout the repos
 motork_openvpn_filename: XX # put here the OVPN filename without the extension 
+ssh_github_key_file: XX # the name of the SSH key file to access github, must be in the ~/.ssh folder
 
 nodejs_version: "12.x"
 nodejs_install_npm_user: "root"
