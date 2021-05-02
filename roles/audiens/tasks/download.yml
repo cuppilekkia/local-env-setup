@@ -9,5 +9,7 @@
   git:
     dest: "~/code/{{ item.item }}"
     repo: "git@github.com:Audiens/{{ item.item }}.git"
+    key_file: ~/.ssh/{{ ssh_github_key_file }}
+    accept_hostkey: yes
   when: not item.stat.exists
-  loop: "{{ repo_stats }}"
+  loop: "{{ repo_stats.results }}"
