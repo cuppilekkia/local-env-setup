@@ -28,7 +28,7 @@ $ chmod +x ./setup-ansible.sh && ./setup-ansible.sh
 ## Content of the setup
 Main:
 
-- Docker
+- Docker (with Docker-compose)
 
 - GIT
 
@@ -38,14 +38,31 @@ Main:
 
 - Yarn
 
-- Oh my zsh
+- ZSH
 
-- Crowdin CLI
+- Oh my zsh
 
 - Postman
 
 ---
-TULU:
+APPS:
+- Terminator
+- OpenVPN
+- CTop
+
+- Slack
+- VSCode
+- DataGrip
+- PHPStorm
+- Goland
+- PyCharm
+
+- Zoom
+- Teams
+- Spotify
+
+---
+TULU: (disabled)
 
 - leadspark-tulu repo
 
@@ -61,11 +78,19 @@ TULU:
 
 - `kibana`, `keycloak`, `dispatcher` added in hosts as 127.0.0.1
 
+---
+AUDIENS:
+
+- repos to clone defined in the roles/audiens/vars/main.yml
+
+- sets app.audiens.local in hosts
 
 ---
 And also as requirements:
 
 - curl
+
+- make
 
 - python3-pip
 

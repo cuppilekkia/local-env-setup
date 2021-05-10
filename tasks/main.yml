@@ -33,6 +33,11 @@
   snap:
     name: goland
     classic: yes
+        
+- name: Install pycharm
+  snap:
+    name: pycharm-professional
+    classic: yes
     
 - name: Install snap packages
   snap:

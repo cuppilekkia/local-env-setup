@@ -14,6 +14,7 @@
     - role: geerlingguy.git
     - role: geerlingguy.java
     - role: geerlingguy.nodejs
+    - role: viasite-ansible.zsh
     - role: gantsign.oh-my-zsh
       users:
         - username: "{{ my_user }}"
